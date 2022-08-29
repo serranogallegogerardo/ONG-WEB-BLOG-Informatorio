@@ -1,0 +1,46 @@
+{% load crispy_forms_tags %}
+<div class="row justify-content-md-center ">
+    <div class="col-md-6">
+      <div class="list-group-item gap-3 py-3" aria-current="true">
+        <form method="POST">{%csrf_token%}
+            <div class="mb-3">
+                
+            </div>
+            {% if user.is_authenticated %}
+
+
+        <form method="post">
+            
+            {{form.as_p |safe}}
+        <!-- <button class="button00" type="submit" >Crear Categoría</button>> -->
+        <input type="submit" value="Save"  > 
+        </form>
+
+            {% else %}
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Comentar
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Error Comentario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Usted tiene que iniciar sesión para poder comentar o registrarse
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-outline-secondary" href="{% url 'index' %}" target="_blank">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            
+        </form>
+      </div>
+    </div>
+</div> 

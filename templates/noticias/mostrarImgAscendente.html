@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Noticias con imagenes
+{% endblock %}
+
+{% block contenido %}
+
+
+<!-- ||Categorias -------------------------->        
+
+<div class="" style=" margin-top: 2em ;  text-align: center;">
+    <p style="font-size: 2em;">Categorías</p>
+    <ul class="vertical-menu" style="display: flex ; width: 90%; justify-content: space-around; flex-wrap: wrap;">                
+        
+        <!--# Acá se listan las categorías -->
+        
+        {% for categoria in listaDeCategorias %}
+        <!-- Se puede dar estilo al link de abajo y se aplica a todas las categorías -->
+        <li style="display: inline-block ; margin: 0.3em;"><a class="btn btn-outline-info" 
+            href="{% url 'apps.noticia:filtrarCategoria' categoria %}">{{categoria}}</a></li>
+        {%endfor%}
+
+    </ul>
+</div>
+
+<!-- END Categorias -------------------------->
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ordenar fecha:
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <a class="dropdown-item" href="{% url 'apps.noticia:mostrarImg' %}" >
+                Descendente 
+            </a>
+            <a class="dropdown-item" href="{% url 'apps.noticia:mostrarImgAscendente' %}">
+                Ascendente
+            </a>
+        </div>
+    </li>
+
+
+    {% for p in noticia %}
+        
+        {% if p %}    
+        <div class="row" data-aos="fade-up" >
+            
+            <div class="col-lg-9 stretch-card grid-margin" style = 'margin-left:10%;margin-top:auto;'>
+            <div class="card">
+                <div class="card-body" >
+                <div class="row">
+                    
+                    <div class="col-sm-4 grid-margin">
+                        <span class="badge badge-danger font-weight-bold">
+                            <a style = 'color:white;' href="{% url 'apps.noticia:filtrarCategoria' p.categoria %}">{{p.categoria}}</a>
+                        </span>
+                    <div class="position-relative">
+
+                        <div class="rotate-img">
+                            {% if p.imagen %}
+                                <img
+                                    src="{{ p.imagen.url }}"
+                                    alt="Sin imagen"
+                                    class="img-fluid"
+                                    style = '
+                                            height:100%;
+                                            width:100%; 
+                                            max-height:295px;
+                                            max-width:360px; 
+                                            object-fit: cover;                                       
+                                            '
+                                />
+                            {% else %}
+                                <img
+                                src="noticia/default.png"
+                                alt="Sin imagen"
+                                class="img-fluid"
+                                style = '
+                                            height:100%;
+                                            width:100%; 
+                                            max-height:295px;
+                                            max-width:360px; 
+                                            object-fit: cover;                                       
+                                            '
+                                />
+                            {% endif %}
+                        </div>
+                        <div class="badge-positioned">
+                        
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-8  grid-margin">
+
+                    {% if user.is_superuser %}
+                        <button type="button" class="btn btn-danger" style = 'position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        margin-right:20px;
+                        '>
+                            <a href='{% url 'apps.noticia:borrar' p.id %}' style = 'color:white'> Borrar </a>
+                        </button>
+                        <button type="button" class="btn btn-secondary" style = 'position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        margin-right:100px;
+                        '>
+                            <a href='{% url 'apps.noticia:modificar' p.id %}' style = 'color:white;'> Editar </a>
+                        </button>
+                    
+                    {% endif %}
+                    
+                    <h2 class="mb-2 font-weight-600">
+                        {{p.titulo}}
+                    </h2>
+                    <div class="fs-13 mb-2">
+                        <span class="mr-2">{{p.fecha}}</span>
+                    </div>
+                    <p class="mb-0">
+                        {{p.texto|safe |slice:":200"}} ... 
+                        <br>
+                        <a href="{% url 'apps.noticia:leerNoticia' p.id  %}">Leer más</a>
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+{% else %}
+<h1>No hay noticias</h1>
+{% endif %}
+
+
+    {% endfor %}
+
+
+{% endblock %}

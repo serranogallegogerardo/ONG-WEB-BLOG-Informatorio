@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!-- head -->
+
+    {% block titulo %}
+        Borrar - Noticias
+    {% endblock %}
+
+<!-- body -->
+
+
+
+{% block contenido %}
+
+    {% if user.is_authenticated and user.is_superuser %}
+
+    <div class="main-container" style = 'margin-left: 14%;margin-right: 13%;margin-top: 2%; text-align: justify;'>
+        <h1>Borrar categoria "{{ object }}"</h1>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <strong> Estas Seguro? </strong>
+            <button class="btn btn-secondaryy"> Borrar categoria! </button>
+
+        </form>
+
+    </div>
+
+    {% else %}
+        <center style = 'margin-top:2em'>
+            <h1>No posee los permisos necesarios para realizar esta accion</h1>
+        </center>
+    {% endif %}
+
+{% endblock %}
+

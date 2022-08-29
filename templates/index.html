@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!--HEAD-->
+
+{% block titulo %}
+    OCAC - Home
+{% endblock %}
+
+<!--BODY-->
+
+{% block contenido %}
+<!-- carrusel -->
+  <div class="owl-carousel-wrapper">
+      <div class="owl-carousel owl-1 ">
+        <!--  style="background-image: url('images/hero_1.jpg');" -->
+        <div class="ftco-cover-1">
+          <a class="d-block mb-3">
+            <img src="{% static 'images/img_3.jpg' %}" alt="Image"style="filter: grayscale(40%); height: calc(100%vh-);;">
+          </a>
+        </div>
+        <div class="ftco-cover-1" >
+          <a class="d-block mb-3">
+            <img src="{% static 'images/img_2.jpg' %}" alt="Image"style="filter: grayscale(40%);">
+          </a>
+        </div>
+        <div class="ftco-cover-1" >
+          <a class="d-block mb-3">
+            <img src="{% static 'images/img_1.jpg' %}" alt="Image" style="filter: grayscale(40%);">
+          </a>
+        </div>
+    </div>
+    <div class="box-92819">
+      <!-- <h1 class="text-white mb-3" id="demotext">
+        OPORTUNIDAD DE CAMBIO 
+        ASOCIACIÓN CIVIL
+      </h1> -->
+      <div><img src="{% static 'images/logo_color.webp' %}" alt="" class="img-fluid"  ></div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-cursive" id="demotext2" style = 'text-align: center;'>
+        <br>
+        ¿QUIÉNES SOMOS? 
+        <br>
+      </h1>
+      <br>
+      <center><p id="margen">Somos una organización no gubernamental, creada el 14 de junio del 2012. Llevamos adelante 2 comedores comunitarios donde, además de brindar raciones de comida, realizamos actividades educativas, recreativas y deportivas. Contamos con un predio denominado "Granja Educativa" en el que los días sábados llevamos adelante actividades al aire libre.</p></center>
+    </div>
+    <div class="col-md-6">
+        <br>
+        <center><img src="{% static 'images/logo1.png' %}" alt="Image" class="img-fluid" width="325" height="267"></center>
+        <br>
+    </div>
+  </div>
+</div>
+    
+<center><img src="{% static 'images/collage.png' %}" alt="Image" class="img-fluid" width="1432" height="679"></center>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{% static 'images/mural.jpg' %}" alt="Image" class="img-fluid" width="476" height="490">
+      <p>Mural conmemorativo realizado en el Predio Granja Educativa.</p>
+    </div>
+    <div class="col-md-6 ml-auto">
+      <center><h3 class="text-cursive mb-4" id="demotext2">
+        ¡10 AÑOS!
+      </h3></center>
+      <p>    
+        ¡Estamos muy contentos! 
+      </p>
+      <p>
+        - 10 años de solidaridad, de extender la mano y brindar el corazón en un plato de comida, en una copa de leche, en un abrigo, en un abrazo, en una caricia...
+      </p>
+      <p>
+        - 10 años de mucho esfuerzo coronados con la satisfacción que producen la suma de pequeños logros.
+      </p>
+      <p>
+        - Gracias a los que hoy están, a los que estuvieron; a todos los que aportaron un granito de arena en pos del bien común.
+      </p>
+      <p>
+        - Mirando hacia atrás, solo nos resta dar gracias a Dios; porque todo lo vivido nos a ayudado a crecer. En la bonanza y en la adversidad ÉL ha estado presente, dándonos fuerzas para seguir adelante. 
+      </p>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="col-md-12">
+    <h1 class="text-cursive" id="demotext2" style = 'text-align: center;'>
+      LA HUERTA<br>
+    </h1>
+    <center><p id="margen">De a poco, y gracias al esfuerzo de muchos, podemos ver el crecimiento de nuestra huerta.</p></center>
+</div>
+<center><img src="{% static 'images/collage4.png' %}" alt="Image" class="img-fluid" width="1432" height="679"></center>
+
+<br>
+<br>
+<div class="container">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+      <h1 class="text-cursive" id="demotext2" style = 'text-align: center;'>MIEMBROS DEL EQUIPO</h1>
+    </div>
+  </div>
+
+  <div class="row align-items-stretch">
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_3.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Presidente</span>
+          <h2>Josefa Solís</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_7.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Consejero</span>
+          <h2>Carlos Aguirre</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_5.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Consejera</span>
+          <h2>Silvana Clerici</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_8.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Consejero</span>
+          <h2>Ernesto Núñez</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_9.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Consejero</span>
+          <h2>Rubén Sandoval</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+        <div class="post-entry-1 h-100 bg-white text-center">
+          <a href="#" class="d-inline-block">
+            <img src="{% static 'images/person_10.gif' %}" alt="Image"
+             class="img-fluid">
+          </a>
+          <div class="post-entry-1-contents">
+            <span class="meta">Consejero</span>
+            <h2>Jorge Pucheta</h2>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-5">
+      <div class="post-entry-1 h-100 bg-white text-center">
+        <a href="#" class="d-inline-block">
+          <img src="{% static 'images/person_1.gif' %}" alt="Image"
+           class="img-fluid">
+        </a>
+        <div class="post-entry-1-contents">
+          <span class="meta">Consejera</span>
+          <h2>Susana Maidana</h2>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% comment %}
+{% if user.is_authenticated %}
+        
+        <h1>Hola {{ user.username }} buenas </h1>
+        {% if user.is_superuser %}
+            <h1>Estas logueado</h1>
+        {% endif %}
+    {% else %}
+        <h1>Hola invitado</h1>
+    {% endif %}
+{% endcomment %}

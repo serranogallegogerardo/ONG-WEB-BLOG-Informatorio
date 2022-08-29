@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%block title%}- Editar post{%endblock%}
+
+{%block contenido%}
+
+<div class="contenido">
+    
+    <h1>{{noticia.titulo}}</h1>
+    
+    {{noticia.categoria}}
+    
+    <img class="news_img" src="{{noticia.imagen.url}}" alt="">
+    
+    {{noticia.texto|safe}}
+    
+    
+    <!-- boton editar -->
+    {% if user.is_authenticated %}
+        {% comment %}
+        <br>
+        <a class="admin button01" href="{% url 'apps.noticia/modificar:modificar' noticia.id  %}">Editar</a>
+        <a class="admin button01" href="{% url 'apps.noticia/borrar:borrar' p.id  %}">Borrar post</a>
+        {% endcomment %}
+    {% endif %}<!-- user.auth -->
+    <!-- END boton editar -->
+
+</div>
+
+{%endblock%}

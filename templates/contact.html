@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+<!--HEAD-->
+
+{% block titulo %}
+    Contactanos 
+{% endblock %}
+<!--BODY-->
+{% block contenido %}
+    <!--Contactanos-->
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+  <!--===============================================================================================-->
+<body>
+
+  <div class="contact1">
+		<div class="container-contact1">
+			<div class="col-md-12">
+				<h1 class="text-cursive" id="demotext2">
+					Mandanos un email haciendo click en la animación
+				</h1>
+				<img src="{% static 'images/flecha.png' %}" alt="Image" width="231" height="198">
+				<!-- form.123formbuilder.com script begins here -->
+				<script type="text/javascript" defer src="https://form.123formbuilder.com/embed/6229126.js?type=lightbox" 
+				data-role="form" data-default-width="650px"data-embed-type="lightbox-image-link" 
+				data-embed-image-link="{% static 'images/correo.gif' %}" width="400" height="200"></script>
+				<!-- form.123formbuilder.com script ends here -->
+			</div>
+			
+			<a href="https://form.123formbuilder.com/6229126/form"  class="contact1-form validate-form" >
+		</div>
+</div>
+
+  <center>
+	<iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7115.091966543732!2d-60.06611277606331!3d-26.917900516044806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9446ba9334e6fac7%3A0x6c2d3822456263ec!2sAsocicaci%C3%B3n%20Civil%20Oportunidad%20de%20Cambio!5e0!3m2!1ses!2sar!4v1660576267431!5m2!1ses!2sar" style="border:0;" class="mapa-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  	</iframe> 
+  </center>
+
+
+
+</body>
+{% endblock %}

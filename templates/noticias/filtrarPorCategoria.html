@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{%block title%}- Ver post de {{ cates }}{%endblock%}
+
+{%block contenido%}
+
+<!-- ||Categorias -------------------------->        
+
+<div class="categorias" style=" margin-top: 2em ;  text-align: center;">
+    <p style="font-size: 2em;">Categorías</p>
+    <ul class="vertical-menu" style="display: flex ; width: 90%; justify-content: space-around; flex-wrap: wrap;">                
+        
+        <!--# Acá se listan las categorías -->
+        
+        {% for cat in c %} 
+        <!-- Se puede dar estilo al link de abajo y se aplica a todas las categorías -->
+        <li style="display: inline-block ; margin: 0.3em;"><a class="btn btn-outline-info" 
+            href="{% url 'apps.noticia:filtrarCategoria' cat %}">{{cat}}</a></li>
+        {%endfor%}
+
+    </ul>
+</div>
+
+<!-- END Categorias -------------------------->
+
+
+{% if noticiasFiltradas %}
+
+
+    <h1 style="text-align: center;" >
+        Posts de la categoría "{{ cates }}"
+    </h1>
+
+    {% for p in noticiasFiltradas reversed %}
+
+        {%include 'noticias/contenido.html' %}
+
+    {% endfor %}
+    
+    {% else %}
+    <h1 style="text-align: center;">Disculpe, esta página no existe</h1>
+    {% endif %}
+    
+    
+{%endblock%}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{%block title%}- Editar post{%endblock%}
+
+{%block contenido%}
+
+    {%for p in noticia%}
+        <div class="contenido">
+            <div class="container">
+                <br>
+                <style type="text/css">  
+                    .transformacion2 { text-transform: uppercase;}   
+                    .bt2{padding:6px;border-radius:10px;width: 100px;}
+                    .btr{background-color:red;color:white;}
+                </style> 
+                {{p.fecha}}
+                <h6 class="bt2 btr" style = 'text-align: center;'>{{p.categoria}}</h6>
+                <h1 class="transformacion2" class="text-cursive" id="demotext2" style = 'text-align: center;'>{{p.titulo}}</h1>
+                <img class="news_img text-align-center mx-auto d-block img-fluid rounded" src="{{p.imagen.url}}" alt="" >
+                {{p.texto|safe}}
+            </div>
+            <!-- boton editar -->
+            {% if user.is_authenticated %}
+                {% comment %}
+                <br>
+                <a class="admin button01" href="{% url 'apps.noticia/modificar:modificar' p.id  %}">Editar</a>
+                <a class="admin button01" href="{% url 'apps.noticia/borrar:borrar' p.id  %}">Borrar post</a>
+                {% endcomment %}
+            {% endif %}<!-- user.auth -->
+            <!-- END boton editar -->
+
+        </div>
+    {%endfor%}
+
+    <div class="container"> 
+        <br>
+        <h3 class="text-cursive" id="demotext2" style=" font-size: 2.5em;">COMENTARIOS</h3>
+        <hr />
+    </div>
+
+    {% if user.is_authenticated%}
+        <div class="container">
+            <div class="addComent">
+                <h3 id="demotext2"  style=" font-size: 1.5em;">Deja un comentario</h3>
+                <form method="post" style="margin-top: 1.3em;">
+                    <h5><textarea name="texto" cols="50" rows="4" maxlength="100"></textarea>
+                    {% csrf_token %}</h5>
+                    <button type="submit" class="btn btn-primary  btn-lg">Enviar</button>
+                </form>
+            </div>
+        </div>
+    {%endif%}
+
+    <div class="container">
+        <div class="comentarios ">
+            
+            {% for coment in comentarios %}
+            
+            <div class="comentario p-1 ">    
+                <br>
+                <h5 class="transformacion2">{{coment.usuario}}</h5>
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="{{coment.usuario.imagen.url}}" alt="" class=" object-fit-contain rounded-circle img-fluid">
+                    </div>
+                    <div class="col-md-11 ml-auto">
+                        <p>{{coment.texto}}</p>
+                    </div>
+                    <br>
+                </div> 
+                <p class="text-right small" >{{coment.created_at}}</p>   
+                <hr style="border-top:3px dashed #00000021; width:90%; text-align:center;"/>
+            
+                {% if user.is_authenticated and user.is_superuser %}
+                <button type="button" class="btn btn-danger">
+                    <a href="{% url 'apps.usuario:eliminar' coment.usuario.id %}" style = 'color:white'> Borrar Usuario </a>
+                </button>
+              
+                <button type="button" class="btn btn-danger">
+                    <a href="{% url 'apps.noticia:delComentario' coment.id %}" style = 'color:white'> Borrar Comentario </a>
+                </button>   
+                
+                {% endif %}    
+            
+
+            </div>
+
+            {%endfor%}
+        </div>
+    </div>
+
+{%endblock%}

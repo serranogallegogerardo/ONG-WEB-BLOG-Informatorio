@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Inicio de Sesión{% endblock %}
+
+{% block contenido %}
+	{% comment %} head {% endcomment %}
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css" media="all" />
+	{% comment %} head {% endcomment %}
+
+	{% comment %} body {% endcomment %}
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Inicio de sesión</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+
+                    <form action="#" method="post">
+					{% csrf_token %}
+					{{ form.as_p }}
+
+					{{form.nombre}}
+					<input type="submit" value="Iniciar Sesión">
+					
+				</form>
+
+				<p>¿No tienes una cuenta? <a href="{% url 'apps.usuario:agregar' %}"> ¡Registrate ahora!</a></p>
+
+			</div>
+		</div>
+		
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+
+{% endblock %}
+

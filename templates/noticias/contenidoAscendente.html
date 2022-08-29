@@ -1,0 +1,69 @@
+
+
+
+{% if p %}    
+    <div class="row" data-aos="fade-up" >
+        
+        <div class="col-lg-9 stretch-card grid-margin" style = 'margin-left:10%;margin-top:auto;'>
+        <div class="card">
+            <div class="card-body" >
+            <div class="row">
+
+                <div class="col-sm-4 grid-margin">
+                <div class="position-relative">
+
+                    <div class="rotate-img">
+                        {% if p.imagen %}
+                            <img
+                                src="{{ p.imagen.url }}"
+                                alt="thumb"
+                                class="img-fluid"
+                            />
+                        {% else %}
+                            <img
+                            src="noticia/default.png"
+                            alt="thumb"
+                            class="img-fluid"
+                            />
+                        {% endif %}
+                    </div>
+                    <div class="badge-positioned">
+                    <span class="badge badge-danger font-weight-bold"
+                        ><a href="{% url 'apps.noticia:filtrarCategoria' p.categoria %}">{{p.categoria}}</a></span>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-sm-8  grid-margin">
+
+                {% if user.is_superuser %}
+                    <button type="button" class="btn btn-danger">
+                        <a href='{% url 'apps.noticia:borrar' p.id %}' style = 'color:white'> Borrar </a>
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                        <a href='{% url 'apps.noticia:modificar' p.id %}' style = 'color:white;'> Editar </a>
+                    </button>
+                 
+                {% endif %}
+                
+                <h2 class="mb-2 font-weight-600">
+                    {{p.titulo}}
+                </h2>
+                <div class="fs-13 mb-2">
+                    <span class="mr-2">{{p.fecha}}</span>
+                </div>
+                <p class="mb-0">
+                    {{p.texto|safe |slice:":200"}} ... 
+                    <br>
+                    <a href="{% url 'apps.noticia:leerNoticia' p.id  %}">Leer más</a>
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+{% else %}
+    <h1>No hay noticias</h1>
+{% endif %}

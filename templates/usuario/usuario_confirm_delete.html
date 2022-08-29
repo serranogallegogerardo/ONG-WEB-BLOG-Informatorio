@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block titulo %} Borrar usuario {% endblock %}
+
+{% block contenido %}
+    {% if user.is_authenticated and user.is_superuser %}
+    <center style = 'margin-top: 4em'>
+        <div class="main-container">
+            <h1>Borrar usuario</h1>
+    
+            <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <p>Esta seguro que desea borrar al usuario "{{ object }}"?</p>
+                {{form}}
+                <input type="submit" value="Confirmar">
+    
+            </form>
+    
+        </div>
+    </center>
+    {% endif %}
+{% endblock %}
