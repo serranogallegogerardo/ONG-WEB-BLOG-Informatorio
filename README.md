@@ -1,3 +1,5 @@
+Repo original https://github.com/JuanmaRB/web
+
 # Blog Oportunidad de Cambio Grupo 9
 [NO OLVIDARSE DE: create DATABASE ongdb]
 -ong/settings poner la contraseña que tienen de su mysql
